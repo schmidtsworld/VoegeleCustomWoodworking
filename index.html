@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<meta charset="utf-8"/>
-<title>Voegele Custom Woodworking - Shop</title>
-<style>
-  html { scroll-behavior: smooth; }
+ <head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
+  <meta charset="utf-8"/>
+  <title>
+   Voegele Custom Woodworking - Shop
+  </title>
+  <style>
+   html { scroll-behavior: smooth; }
 
     body {
   font-family: 'Playfair Display', serif;
@@ -158,173 +159,387 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-</style>
-</head>
-<body>
-<header style="background-color: #042012; padding: 20px 10px; color: #ffffff; text-align: center;">
-<h1 style="font-size: 42px; font-family: 'Brush Script MT', cursive; margin: 0; color: #ffffff;"> </h1>
-<div style="text-align: center; margin: 10px 0;">
-<img alt="Voegele Woodworks Logo" src="logo.png" style="width: 180px;"/>
-</div>
-<p style="font-size: 16px; font-family: Arial, sans-serif; margin-top: 10px;">
-</p>
-</header>
-<nav style="background-color: #05130c; padding: 10px; text-align: center;">
-<a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
-<a href="#gallery" style="color: white; margin: 0 15px; text-decoration: none;">Gallery</a>
-<a href="#shop" style="color: white; margin: 0 15px; text-decoration: none;">Shop</a>
-<a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact Info</a>
-<a href="#custom" style="color: white; margin: 0 15px; text-decoration: none;">Custom</a>
-</nav>
-<section id="home" style="padding: 40px; background: #f8f8f8;"><h2>Welcome to Voegele Custom Woodworking</h2><p>......</p></section>
-<section id="gallery" style="padding: 40px; background: #f0f0f0;"><h2>Gallery</h2><p>Gallery coming soon...</p></section>
-<section id="shop" style="padding: 40px; background: #ffffff;"><h2>Shop</h2>
-<div class="product">
-<h3>Cutting Board</h3>
-<label for="cutting-wood">Wood Type:</label>
-<select id="cutting-wood">
-<option value="Oak">Oak</option>
-<option value="Walnut">Walnut (+$25)</option>
-<option value="Cherry">Cherry (+$15)</option>
-<option value="Maple">Maple (+$10)</option>
-<option value="Mahogany">Mahogany (+$20)</option>
-</select>
-<label for="cutting-color">Wood Stain:</label>
-<select id="cutting-color">
-<option value="Natural">Natural</option>
-<option value="Dark">Dark</option>
-<option value="Light">Light</option>
-</select><br/><br/>
-<label for="cutting-size">Size (inches):</label>
-<input id="cutting-size" min="6" placeholder="e.g. 12" type="number"/>
-<button onclick="addToCart('Cutting Board', 45)">Add to Cart</button>
-</div>
-<div class="product">
-<h3>Gun Mount</h3>
-<label for="gun-type">Firearm Type:</label>
-<select id="gun-type" onchange="updateGunBrands()">
-<option value="Rifle">Rifle</option>
-<option value="Shotgun">Shotgun</option>
-<option value="Pistol">Pistol</option>
-</select>
-<label for="gun-brand">Brand:</label>
-<select id="gun-brand"></select>
-<label for="gun-color">Wood Stain</label>
-<select id="gun-color">
-<option value="Natural">Natural</option>
-<option value="Dark">Dark</option>
-<option value="Light">Light</option>
-</select><br/><br/>
-<label for="gun-barrel">Barrel Length (inches):</label>
-<input id="gun-barrel" placeholder="e.g. 24" type="number"/>
-<label for="gun-wood">Wood Type:</label>
-<select id="gun-wood">
-<option value="Oak">Oak</option>
-<option value="Walnut">Walnut (+$25)</option>
-<option value="Cherry">Cherry (+$15)</option>
-<option value="Maple">Maple (+$10)</option>
-<option value="Mahogany">Mahogany (+$20)</option>
-</select>
-<button onclick="addToCart('Gun Mount', 150)">Add to Cart</button>
-</div>
-<div class="product">
-<h3>Bow Mount</h3>
-<label for="bow-brand">Brand:</label>
-<input id="bow-brand" placeholder="e.g. Hoyt, Mathews, PSE" type="text"/>
-<label for="bow-color">Wood Stain:</label>
-<select id="bow-color">
-<option value="Natural">Natural</option>
-<option value="Dark">Dark</option>
-<option value="Light">Light</option>
-</select><br/><br/>
-<label for="bow-wood">Wood Type:</label>
-<select id="bow-wood">
-<option value="Oak">Oak</option>
-<option value="Walnut">Walnut (+$25)</option>
-<option value="Cherry">Cherry (+$15)</option>
-<option value="Maple">Maple (+$10)</option>
-<option value="Mahogany">Mahogany (+$20)</option>
-</select>
-<button onclick="addToCart('Bow Mount', 125)">Add to Cart</button>
-</div>
-<div id="payment-section" style="margin-top: 30px;">
-<h3>Choose a Payment Method</h3>
-<p> . . . .  </p>
-<div style="margin-bottom: 20px;">
-<h2>Cart</h2>
-<ul id="cart-items"></ul>
-<p>Total: $<span id="total">0.00</span>
-</p></div>
-<div>
-<h4> . </h4>
-<p> . </p>
-</div>
-<br/><strong id="cart-total-summary"></strong><br/><a href="#" id="venmo-link" target="_blank">Pay with Venmo</a><br/><a href="https://cash.app/$VoegeleWoodworks" target="_blank">Pay with Cash App</a></div>
-<p><p id="total"></p></p></section>
-
-<section id="order-slip" style="padding: 40px; background: #f8f8f8;">
-<h2 style="margin-bottom: 20px;">Contact and Shipping</h2>
-<form style="max-width: 600px; margin: auto;">
-<fieldset style="border: none;">
-<legend><strong>Customer details</strong></legend>
-<label>Email *</label>
-<input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="email"/>
-<div style="display: flex; gap: 10px;">
-<div style="flex: 1;">
-<label>First name *</label>
-<input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-</div>
-<div style="flex: 1;">
-<label>Last name *</label>
-<input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-</div>
-</div>
-<label>Phone *</label>
-<input required="" style="width: 100%; margin-bottom: 20px; padding: 8px;" type="tel"/>
-</fieldset>
-<fieldset style="border: none;">
-<legend><strong>Delivery details</strong></legend>
-<label>Country/Region *</label>
-<select required="" style="width: 100%; margin-bottom: 10px; padding: 8px;">
-<option>United States</option>
-</select>
-<label>Address *</label>
-<input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-<label>City *</label>
-<input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-<div style="display: flex; gap: 10px;">
-<div style="flex: 1;">
-<label>State *</label>
-<select required="" style="width: 100%; margin-bottom: 10px; padding: 8px;">
-<option>Minnesota</option>
-<option>Wisconsin</option>
-<option>Iowa</option>
-<option>Other</option>
-</select>
-</div>
-<div style="flex: 1;">
-<label>Zip / Postal code *</label>
-<input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-</div>
-</div>
-</fieldset>
-<button style="width: 100%; padding: 10px; background: black; color: white; font-size: 16px;" type="submit">Submit Order</button>
-</form>
-</section>
-</form>
-<div id="confirmation" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #4CAF50; background-color: #eaffea;">
-<h3>Order Confirmed</h3>
-<p>Thank you, <span id="conf-name"></span>!</p>
-<p>Your order has been received and will be shipped to:</p>
-<p id="conf-address"></p>
-<p><strong>Order Summary:</strong></p>
-<ul id="conf-cart-items"></ul>
-</div>
-<h2>Contact Info</h2><p>Phone:  (696) 969-6969<br/>Email:  VoegeleCustomWoodworking@ICuck.com</p></section>
-<div id="popup"></div>
-<script>
-    let total = 0;
+  </style>
+ </head>
+ <body>
+  <header style="background-color: #042012; padding: 20px 10px; color: #ffffff; text-align: center;">
+   <h1 style="font-size: 42px; font-family: 'Brush Script MT', cursive; margin: 0; color: #ffffff;">
+   </h1>
+   <div style="text-align: center; margin: 10px 0;">
+    <img alt="Voegele Woodworks Logo" src="logo.png" style="width: 180px;"/>
+   </div>
+   <p style="font-size: 16px; font-family: Arial, sans-serif; margin-top: 10px;">
+   </p>
+  </header>
+  <nav style="background-color: #05130c; padding: 10px; text-align: center;">
+   <a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">
+    Home
+   </a>
+   <a href="#gallery" style="color: white; margin: 0 15px; text-decoration: none;">
+    Gallery
+   </a>
+   <a href="#shop" style="color: white; margin: 0 15px; text-decoration: none;">
+    Shop
+   </a>
+   <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">
+    Contact Info
+   </a>
+   <a href="#custom" style="color: white; margin: 0 15px; text-decoration: none;">
+    Custom
+   </a>
+  </nav>
+  <section id="home" style="padding: 40px; background: #f8f8f8;">
+   <h2>
+    Welcome to Voegele Custom Woodworking
+   </h2>
+   <p>
+    ......
+   </p>
+  </section>
+  <section id="gallery" style="padding: 40px; background: #f0f0f0;">
+   <h2>
+    Gallery
+   </h2>
+   <p>
+    Gallery coming soon...
+   </p>
+  </section>
+  <section id="shop" style="padding: 40px; background: #ffffff;">
+   <h2>
+    Shop
+   </h2>
+   <div class="product">
+    <h3>
+     Cutting Board
+    </h3>
+    <label for="cutting-wood">
+     Wood Type:
+    </label>
+    <select id="cutting-wood">
+     <option value="Oak">
+      Oak
+     </option>
+     <option value="Walnut">
+      Walnut (+$25)
+     </option>
+     <option value="Cherry">
+      Cherry (+$15)
+     </option>
+     <option value="Maple">
+      Maple (+$10)
+     </option>
+     <option value="Mahogany">
+      Mahogany (+$20)
+     </option>
+    </select>
+    <label for="cutting-color">
+     Wood Stain:
+    </label>
+    <select id="cutting-color">
+     <option value="Natural">
+      Natural
+     </option>
+     <option value="Dark">
+      Dark
+     </option>
+     <option value="Light">
+      Light
+     </option>
+    </select>
+    <br/>
+    <br/>
+    <label for="cutting-size">
+     Size (inches):
+    </label>
+    <input id="cutting-size" min="6" placeholder="e.g. 12" type="number"/>
+    <button onclick="addToCart('Cutting Board', 45)">
+     Add to Cart
+    </button>
+   </div>
+   <div class="product">
+    <h3>
+     Gun Mount
+    </h3>
+    <label for="gun-type">
+     Firearm Type:
+    </label>
+    <select id="gun-type" onchange="updateGunBrands()">
+     <option value="Rifle">
+      Rifle
+     </option>
+     <option value="Shotgun">
+      Shotgun
+     </option>
+     <option value="Pistol">
+      Pistol
+     </option>
+    </select>
+    <label for="gun-brand">
+     Brand:
+    </label>
+    <select id="gun-brand">
+    </select>
+    <label for="gun-color">
+     Wood Stain
+    </label>
+    <select id="gun-color">
+     <option value="Natural">
+      Natural
+     </option>
+     <option value="Dark">
+      Dark
+     </option>
+     <option value="Light">
+      Light
+     </option>
+    </select>
+    <br/>
+    <br/>
+    <label for="gun-barrel">
+     Barrel Length (inches):
+    </label>
+    <input id="gun-barrel" placeholder="e.g. 24" type="number"/>
+    <label for="gun-wood">
+     Wood Type:
+    </label>
+    <select id="gun-wood">
+     <option value="Oak">
+      Oak
+     </option>
+     <option value="Walnut">
+      Walnut (+$25)
+     </option>
+     <option value="Cherry">
+      Cherry (+$15)
+     </option>
+     <option value="Maple">
+      Maple (+$10)
+     </option>
+     <option value="Mahogany">
+      Mahogany (+$20)
+     </option>
+    </select>
+    <button onclick="addToCart('Gun Mount', 150)">
+     Add to Cart
+    </button>
+   </div>
+   <div class="product">
+    <h3>
+     Bow Mount
+    </h3>
+    <label for="bow-brand">
+     Brand:
+    </label>
+    <input id="bow-brand" placeholder="e.g. Hoyt, Mathews, PSE" type="text"/>
+    <label for="bow-color">
+     Wood Stain:
+    </label>
+    <select id="bow-color">
+     <option value="Natural">
+      Natural
+     </option>
+     <option value="Dark">
+      Dark
+     </option>
+     <option value="Light">
+      Light
+     </option>
+    </select>
+    <br/>
+    <br/>
+    <label for="bow-wood">
+     Wood Type:
+    </label>
+    <select id="bow-wood">
+     <option value="Oak">
+      Oak
+     </option>
+     <option value="Walnut">
+      Walnut (+$25)
+     </option>
+     <option value="Cherry">
+      Cherry (+$15)
+     </option>
+     <option value="Maple">
+      Maple (+$10)
+     </option>
+     <option value="Mahogany">
+      Mahogany (+$20)
+     </option>
+    </select>
+    <button onclick="addToCart('Bow Mount', 125)">
+     Add to Cart
+    </button>
+   </div>
+   <div id="payment-section" style="margin-top: 30px;">
+    <h3>
+     Choose a Payment Method
+    </h3>
+    <p>
+     . . . .
+    </p>
+    <div style="margin-bottom: 20px;">
+     <h2>
+      Cart
+     </h2>
+     <ul id="cart-items">
+     </ul>
+     <p>
+      Total: $
+      <span id="total">
+       0.00
+      </span>
+     </p>
+    </div>
+    <div>
+     <h4>
+      .
+     </h4>
+     <p>
+      .
+     </p>
+    </div>
+    <br/>
+    <strong id="cart-total-summary">
+    </strong>
+    <br/>
+    <a href="#" id="venmo-link" target="_blank">
+     Pay with Venmo
+    </a>
+    <br/>
+    <a href="https://cash.app/$VoegeleWoodworks" target="_blank">
+     Pay with Cash App
+    </a>
+   </div>
+   <p>
+    <p id="total">
+    </p>
+   </p>
+  </section>
+  <section id="order-slip" style="padding: 40px; background: #f8f8f8;">
+   <h2 style="margin-bottom: 20px;">
+    Contact and Shipping
+   </h2>
+   <form style="max-width: 600px; margin: auto;">
+    <fieldset style="border: none;">
+     <legend>
+      <strong>
+       Customer details
+      </strong>
+     </legend>
+     <label>
+      Email *
+     </label>
+     <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="email"/>
+     <div style="display: flex; gap: 10px;">
+      <div style="flex: 1;">
+       <label>
+        First name *
+       </label>
+       <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
+      </div>
+      <div style="flex: 1;">
+       <label>
+        Last name *
+       </label>
+       <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
+      </div>
+     </div>
+     <label>
+      Phone *
+     </label>
+     <input required="" style="width: 100%; margin-bottom: 20px; padding: 8px;" type="tel"/>
+    </fieldset>
+    <fieldset style="border: none;">
+     <legend>
+      <strong>
+       Delivery details
+      </strong>
+     </legend>
+     <label>
+      Country/Region *
+     </label>
+     <select required="" style="width: 100%; margin-bottom: 10px; padding: 8px;">
+      <option>
+       United States
+      </option>
+     </select>
+     <label>
+      Address *
+     </label>
+     <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
+     <label>
+      City *
+     </label>
+     <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
+     <div style="display: flex; gap: 10px;">
+      <div style="flex: 1;">
+       <label>
+        State *
+       </label>
+       <select required="" style="width: 100%; margin-bottom: 10px; padding: 8px;">
+        <option>
+         Minnesota
+        </option>
+        <option>
+         Wisconsin
+        </option>
+        <option>
+         Iowa
+        </option>
+        <option>
+         Other
+        </option>
+       </select>
+      </div>
+      <div style="flex: 1;">
+       <label>
+        Zip / Postal code *
+       </label>
+       <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
+      </div>
+     </div>
+    </fieldset>
+    <button style="width: 100%; padding: 10px; background: black; color: white; font-size: 16px;" type="submit">
+     Submit Order
+    </button>
+   </form>
+  </section>
+  <div id="confirmation" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #4CAF50; background-color: #eaffea;">
+   <h3>
+    Order Confirmed
+   </h3>
+   <p>
+    Thank you,
+    <span id="conf-name">
+    </span>
+    !
+   </p>
+   <p>
+    Your order has been received and will be shipped to:
+   </p>
+   <p id="conf-address">
+   </p>
+   <p>
+    <strong>
+     Order Summary:
+    </strong>
+   </p>
+   <ul id="conf-cart-items">
+   </ul>
+  </div>
+  <h2>
+   Contact Info
+  </h2>
+  <p>
+   Phone:  (696) 969-6969
+   <br/>
+   Email:  VoegeleCustomWoodworking@ICuck.com
+  </p>
+  <div id="popup">
+  </div>
+  <script>
+   let total = 0;
     const cartItems = document.getElementById("cart-items");
     const totalDisplay = document.getElementById("total");
 
@@ -416,20 +631,43 @@ img {
       totalDisplay.textContent = total.toFixed(2);
       showPopup("Item added to cart!");
     }
-  </script><section id="custom" style="padding: 40px; background: #f4f4f4;">
-<h2>Custom Orders</h2>
-<p>If you have a custom woodworking request, feel free to reach out using the form below.</p>
-<form action="mailto:voegelewoodworks@example.com" enctype="text/plain" method="POST" style="max-width: 500px;">
-<label for="name">Your Name:</label><br/>
-<input id="name" name="name" required="" type="text"/><br/><br/>
-<label for="email">Your Email:</label><br/>
-<input id="email" name="email" required="" type="email"/><br/><br/>
-<label for="message">What would you like made?</label><br/>
-<textarea id="message" name="message" required="" rows="6"></textarea><br/><br/>
-<button type="submit">Send Request</button>
-</form>
-</section><script>
-function updateVenmoLink() {
+  </script>
+  <section id="custom" style="padding: 40px; background: #f4f4f4;">
+   <h2>
+    Custom Orders
+   </h2>
+   <p>
+    If you have a custom woodworking request, feel free to reach out using the form below.
+   </p>
+   <form action="mailto:voegelewoodworks@example.com" enctype="text/plain" method="POST" style="max-width: 500px;">
+    <label for="name">
+     Your Name:
+    </label>
+    <br/>
+    <input id="name" name="name" required="" type="text"/>
+    <br/>
+    <br/>
+    <label for="email">
+     Your Email:
+    </label>
+    <br/>
+    <input id="email" name="email" required="" type="email"/>
+    <br/>
+    <br/>
+    <label for="message">
+     What would you like made?
+    </label>
+    <br/>
+    <textarea id="message" name="message" required="" rows="6"></textarea>
+    <br/>
+    <br/>
+    <button type="submit">
+     Send Request
+    </button>
+   </form>
+  </section>
+  <script>
+   function updateVenmoLink() {
     let totalElement = document.getElementById("cart-total");
     if (totalElement) {
         let total = totalElement.textContent.replace('$', '').trim();
@@ -439,8 +677,9 @@ function updateVenmoLink() {
     }
 }
 document.addEventListener("DOMContentLoaded", updateVenmoLink);
-</script><script>
-function updateVenmoLink() {
+  </script>
+  <script>
+   function updateVenmoLink() {
     let totalElement = document.getElementById("cart-total");
     let total = totalElement ? totalElement.textContent.replace('$', '').trim() : "0.00";
     let note = encodeURIComponent("Custom wood order from Voegele Woodworks");
@@ -457,16 +696,16 @@ function updateVenmoLink() {
 }
 
 document.addEventListener("DOMContentLoaded", updateVenmoLink);
-</script>
-<div id="confirmation" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
-  Thank you! Your order has been submitted.
-</div>
-<script>
-  function showConfirmation() {
+  </script>
+  <div id="confirmation" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
+   Thank you! Your order has been submitted.
+  </div>
+  <script>
+   function showConfirmation() {
     event.preventDefault();
     document.querySelector("form").style.display = "none";
     document.getElementById("confirmation").style.display = "block";
   }
-</script>
-</body>
+  </script>
+ </body>
 </html>
