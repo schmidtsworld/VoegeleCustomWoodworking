@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <title>Voegele Custom Woodworking - Shop</title>
-  <style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>Voegele Custom Woodworking - Shop</title>
+<style>
   html { scroll-behavior: smooth; }
 
     body {
@@ -161,192 +162,148 @@ img {
 </style>
 </head>
 <body>
-  
 <header style="background-color: #042012; padding: 20px 10px; color: #ffffff; text-align: center;">
-  <h1 style="font-size: 42px; font-family: 'Brush Script MT', cursive; margin: 0; color: #ffffff;"> </h1>
-  <div style="text-align: center; margin: 10px 0;">
-    <img src="logo.png" alt="Voegele Woodworks Logo" style="width: 180px;" />
-  </div>
-
-  <p style="font-size: 16px; font-family: Arial, sans-serif; margin-top: 10px;">
-    
-  </p>
+<h1 style="font-size: 42px; font-family: 'Brush Script MT', cursive; margin: 0; color: #ffffff;"> </h1>
+<div style="text-align: center; margin: 10px 0;">
+<img alt="Voegele Woodworks Logo" src="logo.png" style="width: 180px;"/>
+</div>
+<p style="font-size: 16px; font-family: Arial, sans-serif; margin-top: 10px;">
+</p>
 </header>
-
 <nav style="background-color: #05130c; padding: 10px; text-align: center;">
-  <a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
-  <a href="#gallery" style="color: white; margin: 0 15px; text-decoration: none;">Gallery</a>
-  <a href="#shop" style="color: white; margin: 0 15px; text-decoration: none;">Shop</a>
-  <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact Info</a>
-  <a href="#custom"style="color: white; margin: 0 15px; text-decoration: none;">Custom</a>
+<a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
+<a href="#gallery" style="color: white; margin: 0 15px; text-decoration: none;">Gallery</a>
+<a href="#shop" style="color: white; margin: 0 15px; text-decoration: none;">Shop</a>
+<a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact Info</a>
+<a href="#custom" style="color: white; margin: 0 15px; text-decoration: none;">Custom</a>
 </nav>
-
 <section id="home" style="padding: 40px; background: #f8f8f8;"><h2>Welcome to Voegele Custom Woodworking</h2><p>......</p></section>
 <section id="gallery" style="padding: 40px; background: #f0f0f0;"><h2>Gallery</h2><p>Gallery coming soon...</p></section>
-
 <section id="shop" style="padding: 40px; background: #ffffff;"><h2>Shop</h2>
 <div class="product">
-    <h3>Cutting Board</h3>
-    <label for="cutting-wood">Wood Type:</label>
-    <select id="cutting-wood">
-      <option value="Oak">Oak</option>
-      <option value="Walnut">Walnut (+$25)</option>
-      <option value="Cherry">Cherry (+$15)</option>
-      <option value="Maple">Maple (+$10)</option>
-      <option value="Mahogany">Mahogany (+$20)</option>
-    </select>
-    <label for="cutting-color">Wood Stain:</label>
+<h3>Cutting Board</h3>
+<label for="cutting-wood">Wood Type:</label>
+<select id="cutting-wood">
+<option value="Oak">Oak</option>
+<option value="Walnut">Walnut (+$25)</option>
+<option value="Cherry">Cherry (+$15)</option>
+<option value="Maple">Maple (+$10)</option>
+<option value="Mahogany">Mahogany (+$20)</option>
+</select>
+<label for="cutting-color">Wood Stain:</label>
 <select id="cutting-color">
-  <option value="Natural">Natural</option>
-  <option value="Dark">Dark</option>
-  <option value="Light">Light</option>
-</select><br><br>
+<option value="Natural">Natural</option>
+<option value="Dark">Dark</option>
+<option value="Light">Light</option>
+</select><br/><br/>
 <label for="cutting-size">Size (inches):</label>
-    <input id="cutting-size" type="number" min="6" placeholder="e.g. 12" />
-    <button onclick="addToCart('Cutting Board', 45)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>Gun Mount</h3>
-    <label for="gun-type">Firearm Type:</label>
-    <select id="gun-type" onchange="updateGunBrands()">
-      <option value="Rifle">Rifle</option>
-      <option value="Shotgun">Shotgun</option>
-      <option value="Pistol">Pistol</option>
-    </select>
-    <label for="gun-brand">Brand:</label>
-    <select id="gun-brand"></select>
-    <label for="gun-color">Wood Stain</label>
+<input id="cutting-size" min="6" placeholder="e.g. 12" type="number"/>
+<button onclick="addToCart('Cutting Board', 45)">Add to Cart</button>
+</div>
+<div class="product">
+<h3>Gun Mount</h3>
+<label for="gun-type">Firearm Type:</label>
+<select id="gun-type" onchange="updateGunBrands()">
+<option value="Rifle">Rifle</option>
+<option value="Shotgun">Shotgun</option>
+<option value="Pistol">Pistol</option>
+</select>
+<label for="gun-brand">Brand:</label>
+<select id="gun-brand"></select>
+<label for="gun-color">Wood Stain</label>
 <select id="gun-color">
-  <option value="Natural">Natural</option>
-  <option value="Dark">Dark</option>
-  <option value="Light">Light</option>
-</select><br><br>
+<option value="Natural">Natural</option>
+<option value="Dark">Dark</option>
+<option value="Light">Light</option>
+</select><br/><br/>
 <label for="gun-barrel">Barrel Length (inches):</label>
-    <input id="gun-barrel" type="number" placeholder="e.g. 24" />
-    <label for="gun-wood">Wood Type:</label>
-    <select id="gun-wood">
-      <option value="Oak">Oak</option>
-      <option value="Walnut">Walnut (+$25)</option>
-      <option value="Cherry">Cherry (+$15)</option>
-      <option value="Maple">Maple (+$10)</option>
-      <option value="Mahogany">Mahogany (+$20)</option>
-    </select>
-    <button onclick="addToCart('Gun Mount', 150)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>Bow Mount</h3>
-    <label for="bow-brand">Brand:</label>
-    <input id="bow-brand" type="text" placeholder="e.g. Hoyt, Mathews, PSE" />
-    <label for="bow-color">Wood Stain:</label>
+<input id="gun-barrel" placeholder="e.g. 24" type="number"/>
+<label for="gun-wood">Wood Type:</label>
+<select id="gun-wood">
+<option value="Oak">Oak</option>
+<option value="Walnut">Walnut (+$25)</option>
+<option value="Cherry">Cherry (+$15)</option>
+<option value="Maple">Maple (+$10)</option>
+<option value="Mahogany">Mahogany (+$20)</option>
+</select>
+<button onclick="addToCart('Gun Mount', 150)">Add to Cart</button>
+</div>
+<div class="product">
+<h3>Bow Mount</h3>
+<label for="bow-brand">Brand:</label>
+<input id="bow-brand" placeholder="e.g. Hoyt, Mathews, PSE" type="text"/>
+<label for="bow-color">Wood Stain:</label>
 <select id="bow-color">
-  <option value="Natural">Natural</option>
-  <option value="Dark">Dark</option>
-  <option value="Light">Light</option>
-</select><br><br>
+<option value="Natural">Natural</option>
+<option value="Dark">Dark</option>
+<option value="Light">Light</option>
+</select><br/><br/>
 <label for="bow-wood">Wood Type:</label>
-    <select id="bow-wood">
-      <option value="Oak">Oak</option>
-      <option value="Walnut">Walnut (+$25)</option>
-      <option value="Cherry">Cherry (+$15)</option>
-      <option value="Maple">Maple (+$10)</option>
-      <option value="Mahogany">Mahogany (+$20)</option>
-    </select>
-    <button onclick="addToCart('Bow Mount', 125)">Add to Cart</button>
-  </div>
-
-  
-</p>
-
-
-
-
-
+<select id="bow-wood">
+<option value="Oak">Oak</option>
+<option value="Walnut">Walnut (+$25)</option>
+<option value="Cherry">Cherry (+$15)</option>
+<option value="Maple">Maple (+$10)</option>
+<option value="Mahogany">Mahogany (+$20)</option>
+</select>
+<button onclick="addToCart('Bow Mount', 125)">Add to Cart</button>
+</div>
 <div id="payment-section" style="margin-top: 30px;">
-  <h3>Choose a Payment Method</h3>
-  <p>(Note: This is a placeholder — payment integration will go here)</p>
-
-  <div style="margin-bottom: 20px;">
-    <h4>Credit or Debit Card</h4>
-    <form id="card-payment-form" style="max-width: 400px;">
-      <input type="text" placeholder="Cardholder Name" required><br>
-      <input type="text" placeholder="Card Number" required><br>
-      <input type="text" placeholder="MM/YY" required><br>
-      <input type="text" placeholder="CVC" required><br>
-      <button type="submit">Pay Now</button>
-    </form>
+<h3>Choose a Payment Method</h3>
+<p> . . . .  </p>
+<div style="margin-bottom: 20px;">
 <h2>Cart</h2>
 <ul id="cart-items"></ul>
 <p>Total: $<span id="total">0.00</span>
-  </div>
-
-
-
-  <div>
-    <h4>PayPal</h4>
-    <p>A PayPal button will be here in future updates.</p>
-  </div>
+</p></div>
+<div>
+<h4> . </h4>
+<p> . </p>
 </div>
+<br/><strong id="cart-total-summary"></strong><br/><a href="#" id="venmo-link" target="_blank">Pay with Venmo</a><br/><a href="https://cash.app/$VoegeleWoodworks" target="_blank">Pay with Cash App</a></div>
+<p><p id="total"></p></p></section>
 
 
-  <p>Total: $<p id="total">0.00</p></p></section>
-
-
-
-
-<section id="contact" style="padding: 40px; background: #f8f8f8;"><h3>Shipping Info</h3>
-<form id="shipping-form" style="max-width: 400px;">
-  <input type="text" placeholder="Full Name" id="full-name" required><br>
-  <input type="text" placeholder="Address" id="address" required><br>
-  <input type="text" placeholder="City" id="city" required><br>
-  <input type="text" placeholder="State" id="state" required><br>
-  <input type="text" placeholder="Zip Code" id="zip" required><br>
-  <button type="submit">Submit Order</button>
-</form>
-<div id="confirmation" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #4CAF50; background-color: #eaffea;">
-  <h3>Order Confirmed</h3>
-  <p>Thank you, <span id="conf-name"></span>!</p>
-  <p>Your order has been received and will be shipped to:</p>
-  <p id="conf-address"></p>
-  <p><strong>Order Summary:</strong></p>
-  <ul id="conf-cart-items"></ul>
-</div>
+<section id="order-slip" class="section">
+  <h2>Order Slip / Personal Info</h2>
+  <form name="order" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="order" />
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+    <label for="address">Shipping Address:</label>
+    <textarea id="address" name="address" required></textarea><br>
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone"><br>
+    <label for="orderSummary">Order Summary:</label>
+    <textarea id="orderSummary" name="orderSummary" readonly></textarea><br>
+    <button type="submit">Submit Order</button>
+  </form>
+</section>
 
 <script>
-  document.getElementById("shipping-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const name = document.getElementById("full-name").value;
-    const address = document.getElementById("address").value + ", " +
-                    document.getElementById("city").value + ", " +
-                    document.getElementById("state").value + " " +
-                    document.getElementById("zip").value;
-    const cart = JSON.parse(localStorage.getItem("voegele_cart")) || [];
-
-    document.getElementById("conf-name").textContent = name;
-    document.getElementById("conf-address").textContent = address;
-
-    const confList = document.getElementById("conf-cart-items");
-    confList.innerHTML = "";
-    cart.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      confList.appendChild(li);
-    });
-
-    document.getElementById("confirmation").style.display = "block";
-    this.style.display = "none"; // Hide the form
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const orderSummary = document.getElementById("orderSummary");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (orderSummary && cart.length > 0) {
+    orderSummary.value = cart.map(item => `${item.name} - ${item.size} - ${item.wood} ($${item.price})`).join("\n");
+  }
+});
 </script>
-<h2>Contact Info</h2><p>Phone:  (696) 969-6969<br>Email:  VoegeleCustomWoodworking@ICuck.com</p></section>
 
-
-
-  
-
-  <div id="popup"></div>
-
-  <script>
+</form>
+<div id="confirmation" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #4CAF50; background-color: #eaffea;">
+<h3>Order Confirmed</h3>
+<p>Thank you, <span id="conf-name"></span>!</p>
+<p>Your order has been received and will be shipped to:</p>
+<p id="conf-address"></p>
+<p><strong>Order Summary:</strong></p>
+<ul id="conf-cart-items"></ul>
+</div>
+<h2>Contact Info</h2><p>Phone:  (696) 969-6969<br/>Email:  VoegeleCustomWoodworking@ICuck.com</p></section>
+<div id="popup"></div>
+<script>
     let total = 0;
     const cartItems = document.getElementById("cart-items");
     const totalDisplay = document.getElementById("total");
@@ -440,18 +397,44 @@ img {
       showPopup("Item added to cart!");
     }
   </script><section id="custom" style="padding: 40px; background: #f4f4f4;">
-  <h2>Custom Orders</h2>
-  <p>If you have a custom woodworking request, feel free to reach out using the form below.</p>
-  <form action="mailto:voegelewoodworks@example.com" method="POST" enctype="text/plain" style="max-width: 500px;">
-    <label for="name">Your Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+<h2>Custom Orders</h2>
+<p>If you have a custom woodworking request, feel free to reach out using the form below.</p>
+<form action="mailto:voegelewoodworks@example.com" enctype="text/plain" method="POST" style="max-width: 500px;">
+<label for="name">Your Name:</label><br/>
+<input id="name" name="name" required="" type="text"/><br/><br/>
+<label for="email">Your Email:</label><br/>
+<input id="email" name="email" required="" type="email"/><br/><br/>
+<label for="message">What would you like made?</label><br/>
+<textarea id="message" name="message" required="" rows="6"></textarea><br/><br/>
+<button type="submit">Send Request</button>
+</form>
+</section><script>
+function updateVenmoLink() {
+    let totalElement = document.getElementById("cart-total");
+    if (totalElement) {
+        let total = totalElement.textContent.replace('$', '').trim();
+        let note = encodeURIComponent("Custom wood order from Voegele Woodworks");
+        let venmoHref = `https://venmo.com/VoegeleWoodworks?txn=pay&amount=${total}&note=${note}`;
+        document.getElementById("venmo-link").href = venmoHref;
+    }
+}
+document.addEventListener("DOMContentLoaded", updateVenmoLink);
+</script><script>
+function updateVenmoLink() {
+    let totalElement = document.getElementById("cart-total");
+    let total = totalElement ? totalElement.textContent.replace('$', '').trim() : "0.00";
+    let note = encodeURIComponent("Custom wood order from Voegele Woodworks");
 
-    <label for="email">Your Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    let mobileLink = `venmo://paycharge?txn=pay&recipients=VoegeleWoodworks&amount=${total}&note=${note}`;
+    let desktopLink = `https://venmo.com/voegelewoodworks`;
 
-    <label for="message">What would you like made?</label><br>
-    <textarea id="message" name="message" rows="6" required></textarea><br><br>
+    let venmoBtn = document.getElementById("venmo-link");
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        venmoBtn.href = mobileLink;
+    } else {
+        venmoBtn.href = desktopLink;
+    }
+}
 
-    <button type="submit">Send Request</button>
-  </form>
-</section>
+document.addEventListener("DOMContentLoaded", updateVenmoLink);
+</script></body></html>
