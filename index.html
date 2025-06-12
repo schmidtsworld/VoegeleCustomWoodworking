@@ -265,7 +265,7 @@ img {
 
 <section id="order-slip" style="padding: 40px; background: #f8f8f8;">
 <h2 style="margin-bottom: 20px;">Contact and Shipping</h2>
-<form name="order" method="POST" data-netlify="true" style="max-width: 600px; margin: auto;">
+<form style="max-width: 600px; margin: auto;">
 <fieldset style="border: none;">
 <legend><strong>Customer details</strong></legend>
 <label>Email *</label>
@@ -419,7 +419,7 @@ img {
   </script><section id="custom" style="padding: 40px; background: #f4f4f4;">
 <h2>Custom Orders</h2>
 <p>If you have a custom woodworking request, feel free to reach out using the form below.</p>
-<form name="order" method="POST" data-netlify="true" action="mailto:voegelewoodworks@example.com" enctype="text/plain" method="POST" style="max-width: 500px;">
+<form action="mailto:voegelewoodworks@example.com" enctype="text/plain" method="POST" style="max-width: 500px;">
 <label for="name">Your Name:</label><br/>
 <input id="name" name="name" required="" type="text"/><br/><br/>
 <label for="email">Your Email:</label><br/>
@@ -457,4 +457,23 @@ function updateVenmoLink() {
 }
 
 document.addEventListener("DOMContentLoaded", updateVenmoLink);
-</script></body></html>
+</script>
+<script>
+  function handleFormSubmit(event) {
+    event.preventDefault(); // Prevent redirect
+    const form = event.target;
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(() => {
+      document.getElementById("confirmation").style.display = "block";
+      form.reset();
+    })
+    .catch((error) => alert("There was an issue submitting the form. Please try again."));
+  }
+</script>
+
+</body></html>
