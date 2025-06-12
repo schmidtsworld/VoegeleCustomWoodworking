@@ -457,4 +457,16 @@ function updateVenmoLink() {
 }
 
 document.addEventListener("DOMContentLoaded", updateVenmoLink);
-</script></body></html>
+</script>
+<div id="confirmation" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
+  Thank you! Your order has been submitted.
+</div>
+<script>
+  function showConfirmation() {
+    event.preventDefault();
+    document.querySelector("form").style.display = "none";
+    document.getElementById("confirmation").style.display = "block";
+  }
+</script>
+</body>
+</html>
