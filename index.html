@@ -1,746 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
-  <meta charset="utf-8"/>
-  <title>
-   Voegele Custom Woodworking - Shop
-  </title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voegele's Custom Woodworking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <style>
-   html { scroll-behavior: smooth; }
-
+    * {margin:0; padding:0; box-sizing:border-box;}
     body {
-  font-family: 'Playfair Display', serif;
-
-      background: url('') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #07351e;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+      color: #333;
     }
-    .product {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 2px solid #07351e;
-      border-left: 6px solid #07351e;
-      color: #07351e;
-      
-      
-    }
-    h1 {
-      font-family: 'Brush Script MT', cursive;
-  font-size: 48px;
-      
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-      color: #07351e;
-    }
-    h3 {
-      color: #07351e;
-    }
-    button {
-      background-color: #07351e;
-      color: #ffffff;
-      
-      
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #07351e;
-    }
-    select,
-    body {
-  font-family: 'Playfair Display', serif;
-
-      background: url('') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial;
-      padding: 20px;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .product {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 2px solid #07351e;
-      border-left: 6px solid #07351e;
-      color: #07351e;
-      margin-bottom: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.95);
-      
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    button { padding: 6px 12px; margin-top: 5px; }
-    select, input { margin-top: 5px; width: 100%; padding: 4px; }
-    #popup {
-      visibility: hidden;
-      min-width: 250px;
-      background-color: #4CAF50;
-      color: #ffffff;
-      text-align: center;
-      
-      padding: 12px;
-      position: fixed;
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #1c52a3;
+      position: sticky;
+      top: 0;
       z-index: 1000;
-      right: 20px;
-      bottom: 20px;
-      font-size: 16px;
     }
-    #popup.show {
-      visibility: visible;
-      animation: fadein 0.5s, fadeout 0.5s 2s;
+    header h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2rem;
+      color: #1c52a3;
     }
-    @keyframes fadein {
-      from { bottom: 0; opacity: 0; }
-      to { bottom: 20px; opacity: 1; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
     }
-    @keyframes fadeout {
-      from { bottom: 20px; opacity: 1; }
-      to { bottom: 0; opacity: 0; }
+    nav a {
+      text-decoration: none;
+      color: #1c52a3;
+      font-weight: 600;
     }
-    .product:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.25);
-  }
-  button:hover {
-    transform: scale(1.05);
-  }
-  .product button {
-    background-color: #07351e;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 4px;
-  }
-  .product button:hover {
-    background-color: #07351e;
-  }
-  .remove-button {
-    margin-left: 10px;
-    background-color: #b33a3a;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .remove-button:hover {
-    background-color: #d9534f;
-  }
-
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 28px;
-  }
-  nav {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-  nav a {
-    display: inline-block;
-    margin: 10px;
-    white-space: nowrap;
-    flex: 0 0 auto;
-  }
-  .product {
-    padding: 10px;
-    font-size: 16px;
-  }
-  input, select, textarea {
-    font-size: 16px;
-  }
-  button {
-    font-size: 16px;
-  }
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
+    nav a:hover {text-decoration: underline;}
+    .hero {
+      background: url('images/Background1.png') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero img {
+      max-width: 65%;   /* resized smaller */
+      max-height: 65%;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+    section {padding: 3rem 2rem; max-width: 1100px; margin:auto;}
+    h3 {text-align:center; margin-bottom:2rem; font-size:1.8rem; color:#1c52a3;}
+    .products {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem;
+    }
+    .product {
+      border: 2px solid #1c52a3;
+      padding: 1rem;
+      background:#fff;
+      border-radius:10px;
+      transition:.3s;
+    }
+    .product:hover {transform:translateY(-6px); box-shadow:0 6px 14px rgba(0,0,0,.2);}
+    .product h4 {color:#1c52a3; margin-bottom:.5rem;}
+    .product select,.product input {width:100%; padding:.4rem; margin:.3rem 0;}
+    .product button {
+      background:#1c52a3; color:#fff; border:none; padding:.6rem 1rem; border-radius:5px; cursor:pointer; margin-top:.5rem;
+    }
+    .product button:hover {background:#163b70;}
+    form {display:grid; gap:1rem; max-width:600px; margin:auto;}
+    form input,form textarea {padding:.8rem; border:1px solid #ccc; border-radius:5px; width:100%;}
+    form button {background:#1c52a3; color:#fff; border:none; padding:.8rem; border-radius:5px;}
+    footer {background:#1c52a3; color:#fff; text-align:center; padding:2rem 1rem; margin-top:2rem;}
   </style>
- </head>
- <body>
-  <header style="background-color: #042012; padding: 20px 10px; color: #ffffff; text-align: center;">
-   <h1 style="font-size: 42px; font-family: 'Brush Script MT', cursive; margin: 0; color: #ffffff;">
-   </h1>
-   <div style="text-align: center; margin: 10px 0;">
-    <img alt="Voegele Woodworks Logo" src="logo5.png" style="width: 180px;"/>
-   </div>
-   <p style="font-size: 16px; font-family: Arial, sans-serif; margin-top: 10px;">
-   </p>
+</head>
+<body>
+  <header>
+    <h1>Voegele's Custom Woodworking</h1>
+    <nav>
+      <ul>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#cart">Cart</a></li>
+      </ul>
+    </nav>
   </header>
-  <nav style="background-color: #05130c; padding: 10px; text-align: center;">
-   <a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">
-    Home
-   </a>
-   <a href="#gallery" style="color: white; margin: 0 15px; text-decoration: none;">
-    Gallery
-   </a>
-   <a href="#shop" style="color: white; margin: 0 15px; text-decoration: none;">
-    Shop
-   </a>
-   
-   <a href="#custom" style="color: white; margin: 0 15px; text-decoration: none;">
-    Custom
-   </a>
-  <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">
-    Contact Info
-   </a></nav><a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">
-    Contact Info
-   </a></nav>
 
-<section id="home" style="padding: 40px; background: #f8f8f8;">
-   <h2>
-    Welcome to Voegele Custom Woodworking
-   </h2>
-   <p>
-    ......
-   </p>
+  <!-- Hero -->
+  <section class="hero">
+    <img src="images/logo5.png" alt="Hero Image">
   </section>
 
-  
-  <section id="gallery" style="padding: 40px; background: #f0f0f0;">
-   <h2>
-    Gallery
-   </h2>
-   <p>
-    Gallery coming soon...
-   </p>
-  </section>
-  <section id="shop" style="padding: 40px; background: #ffffff;">
-   <h2>
-    Shop
-   </h2>
-   <div class="product">
-    <h3>
-     Cutting Board
-    </h3>
-    <label for="cutting-wood">
-     Wood Type:
-    </label>
-    <select id="cutting-wood">
-     <option value="Oak">
-      Oak
-     </option>
-     <option value="Walnut">
-      Walnut (+$25)
-     </option>
-     <option value="Cherry">
-      Cherry (+$15)
-     </option>
-     <option value="Maple">
-      Maple (+$10)
-     </option>
-     <option value="Mahogany">
-      Mahogany (+$20)
-     </option>
-    </select>
-    <label for="cutting-color">
-     Wood Stain:
-    </label>
-    <select id="cutting-color">
-     <option value="Natural">
-      Natural
-     </option>
-     <option value="Dark">
-      Dark
-     </option>
-     <option value="Light">
-      Light
-     </option>
-    </select>
-    <br/>
-    <br/>
-    <label for="cutting-size">
-     Size (inches):
-    </label>
-    <input id="cutting-size" min="6" placeholder="e.g. 12" type="number"/>
-    <button onclick="addToCart('Cutting Board', 45)">
-     Add to Cart
-    </button>
-   </div>
-   <div class="product">
-    <h3>
-     Gun Mount
-    </h3>
-    <label for="gun-type">
-     Firearm Type:
-    </label>
-    <select id="gun-type" onchange="updateGunBrands()">
-     <option value="Rifle">
-      Rifle
-     </option>
-     <option value="Shotgun">
-      Shotgun
-     </option>
-     <option value="Pistol">
-      Pistol
-     </option>
-    </select>
-    <label for="gun-brand">
-     Brand:
-    </label>
-    <select id="gun-brand">
-    </select>
-    <label for="gun-color">
-     Wood Stain
-    </label>
-    <select id="gun-color">
-     <option value="Natural">
-      Natural
-     </option>
-     <option value="Dark">
-      Dark
-     </option>
-     <option value="Light">
-      Light
-     </option>
-    </select>
-    <br/>
-    <br/>
-    <label for="gun-barrel">
-     Barrel Length (inches):
-    </label>
-    <input id="gun-barrel" placeholder="e.g. 24" type="number"/>
-    <label for="gun-wood">
-     Wood Type:
-    </label>
-    <select id="gun-wood">
-     <option value="Oak">
-      Oak
-     </option>
-     <option value="Walnut">
-      Walnut (+$25)
-     </option>
-     <option value="Cherry">
-      Cherry (+$15)
-     </option>
-     <option value="Maple">
-      Maple (+$10)
-     </option>
-     <option value="Mahogany">
-      Mahogany (+$20)
-     </option>
-    </select>
-    <button onclick="addToCart('Gun Mount', 150)">
-     Add to Cart
-    </button>
-   </div>
-   <div class="product">
-    <h3>
-     Bow Mount
-    </h3>
-    <label for="bow-brand">
-     Brand:
-    </label>
-    <input id="bow-brand" placeholder="e.g. Hoyt, Mathews, PSE" type="text"/>
-    <label for="bow-color">
-     Wood Stain:
-    </label>
-    <select id="bow-color">
-     <option value="Natural">
-      Natural
-     </option>
-     <option value="Dark">
-      Dark
-     </option>
-     <option value="Light">
-      Light
-     </option>
-    </select>
-    <br/>
-    <br/>
-    <label for="bow-wood">
-     Wood Type:
-    </label>
-    <select id="bow-wood">
-     <option value="Oak">
-      Oak
-     </option>
-     <option value="Walnut">
-      Walnut (+$25)
-     </option>
-     <option value="Cherry">
-      Cherry (+$15)
-     </option>
-     <option value="Maple">
-      Maple (+$10)
-     </option>
-     <option value="Mahogany">
-      Mahogany (+$20)
-     </option>
-    </select>
-    <button onclick="addToCart('Bow Mount', 125)">
-     Add to Cart
-    </button>
-   </div>
-   <div id="payment-section" style="margin-top: 30px;">
-    <h3>
-     Choose a Payment Method
-    </h3>
-    <p>
-     . . . .
-    </p>
-    <div style="margin-bottom: 20px;">
-     <h2>
-      Cart
-     </h2>
-     <ul id="cart-items">
-     </ul>
-     <p>
-      Total: $
-      <span id="total">
-       0.00
-      </span>
-     </p>
-    </div>
-    <div>
-     <h4>
-      .
-     </h4>
-     <p>
-      .
-     </p>
-    </div>
-    <br/>
-    <strong id="cart-total-summary">
-    </strong>
-    <br/>
-    <a href="#" id="venmo-link" target="_blank">
-     Pay with Venmo
-    </a>
-    <br/>
-    <a href="https://cash.app/$VoegeleWoodworks" target="_blank">
-     Pay with Cash App
-    </a>
-   </div>
-   <p>
-    <p id="total">
-    </p>
-   </p>
-  </section>
-  <section id="order-slip" style="padding: 40px; background: #f8f8f8;">
-   <h2 style="margin-bottom: 20px;">
-    Contact and Shipping
-   </h2>
-   <form style="max-width: 600px; margin: auto;">
-    <fieldset style="border: none;">
-     <legend>
-      <strong>
-       Customer details
-      </strong>
-     </legend>
-     <label>
-      Email *
-     </label>
-     <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="email"/>
-     <div style="display: flex; gap: 10px;">
-      <div style="flex: 1;">
-       <label>
-        First name *
-       </label>
-       <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-      </div>
-      <div style="flex: 1;">
-       <label>
-        Last name *
-       </label>
-       <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-      </div>
-     </div>
-     <label>
-      Phone *
-     </label>
-     <input required="" style="width: 100%; margin-bottom: 20px; padding: 8px;" type="tel"/>
-    </fieldset>
-    <fieldset style="border: none;">
-     <legend>
-      <strong>
-       Delivery details
-      </strong>
-     </legend>
-     <label>
-      Country/Region *
-     </label>
-     <select required="" style="width: 100%; margin-bottom: 10px; padding: 8px;">
-      <option>
-       United States
-      </option>
-     </select>
-     <label>
-      Address *
-     </label>
-     <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-     <label>
-      City *
-     </label>
-     <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-     <div style="display: flex; gap: 10px;">
-      <div style="flex: 1;">
-       <label>
-        State *
-       </label>
-       <select required="" style="width: 100%; margin-bottom: 10px; padding: 8px;">
-        <option>
-         Minnesota
-        </option>
-        <option>
-         Wisconsin
-        </option>
-        <option>
-         Iowa
-        </option>
-        <option>
-         Other
-        </option>
-       </select>
-      </div>
-      <div style="flex: 1;">
-       <label>
-        Zip / Postal code *
-       </label>
-       <input required="" style="width: 100%; margin-bottom: 10px; padding: 8px;" type="text"/>
-      </div>
-     </div>
-    </fieldset>
-    <button style="width: 100%; padding: 10px; background: black; color: white; font-size: 16px;" type="submit">
-     Submit Order
-    </button>
-   </form>
-  </section>
-  <div id="confirmation" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #4CAF50; background-color: #eaffea;">
-   <h3>
-    Order Confirmed
-   </h3>
-   <p>
-    Thank you,
-    <span id="conf-name">
-    </span>
-    !
-   </p>
-   <p>
-    Your order has been received and will be shipped to:
-   </p>
-   <p id="conf-address">
-   </p>
-   <p>
-    <strong>
-     Order Summary:
-    </strong>
-   </p>
-   <ul id="conf-cart-items">
-   </ul>
-  </div>
-  
-  <div id="popup">
-  </div>
-  <script>
-   let total = 0;
-    const cartItems = document.getElementById("cart-items");
-    const totalDisplay = document.getElementById("total");
+  <!-- Shop -->
+<section id="shop">
+  <h3>Shop Products</h3>
+  <div class="products">
 
-    const gunBrands = {
-      Rifle: ["Ruger", "Savage", "Tikka", "Bergara", "Sig Sauer", "Remington", "Springfield Armory", "Smith & Wesson", "Browning", "Marlin", "Kimber", "Winchester", "Palmetto State Armory"],
-      Shotgun: ["Benelli", "Browning", "Mossberg", "Remington", "Winchester", "Beretta"],
-      Pistol: ["Glock", "Sig Sauer", "Smith & Wesson", "Springfield Armory", "Beretta", "Walther"]
-    };
+<!-- Cutting Board -->
+<div class="product">
+  <img id="cutting-board-img" src="images/oakcuttingboard.png" alt="Cutting Board" style="width:100%; border-radius:8px; margin-bottom:10px;">
+  <h4>Cutting Board - $45</h4>
+  <label>Wood Type:</label>
+  <select id="cutting-wood" onchange="updateCuttingBoardImage()">
+    <option value="oak">Oak</option>
+    <option value="walnut">Walnut (+$25)</option>
+    <option value="cherry">Cherry (+$15)</option>
+    <option value="maple">Maple (+$10)</option>
+    <option value="mahogany">Mahogany (+$20)</option>
+  </select>
+  <label>Stain:</label>
+  <select id="cutting-color">
+    <option>Natural</option><option>Dark</option><option>Light</option>
+  </select>
+  <label>Size (in):</label>
+  <input type="number" id="cutting-size" placeholder="e.g. 12">
+  <button onclick="addToCart('Cutting Board',45)">Add to Cart</button>
+</div>
 
-    function updateGunBrands() {
-      const type = document.getElementById("gun-type").value;
-      const brandSelect = document.getElementById("gun-brand");
-      brandSelect.innerHTML = "";
-      gunBrands[type].forEach(brand => {
-        const opt = document.createElement("option");
-        opt.value = brand;
-        opt.textContent = brand;
-        brandSelect.appendChild(opt);
-      });
-    }
-
-    window.onload = updateGunBrands;
-
-    function showPopup(message, error = false) {
-      const popup = document.getElementById("popup");
-      popup.textContent = message;
-      popup.style.backgroundColor = error ? "#f44336" : "#4CAF50";
-      popup.className = "show";
-      setTimeout(() => {
-        popup.className = popup.className.replace("show", "");
-      }, 2500);
-    }
-
-    function getWoodPrice(wood) {
-      switch (wood) {
-        case "Walnut": return 25;
-        case "Cherry": return 15;
-        case "Maple": return 10;
-        case "Mahogany": return 20;
-        default: return 0;
-      }
-    }
-
-    function addToCart(product, basePrice) {
-      let wood = "", details = "", price = basePrice;
-
-      if (product === "Cutting Board") {
-        const color = document.getElementById("cutting-color").value;
-        details += `, Color: ${color}`;
-        wood = document.getElementById("cutting-wood").value;
-        const size = parseFloat(document.getElementById("cutting-size").value) || 0;
-        if (size >= 24) price += 20;
-        else if (size >= 12) price += 10;
-        details = ` (${size} in)`;
-      } else if (product === "Gun Mount") {
-        const color = document.getElementById("gun-color").value;
-        details += `, Color: ${color}`;
-        wood = document.getElementById("gun-wood").value;
-        const type = document.getElementById("gun-type").value;
-        const brand = document.getElementById("gun-brand").value;
-        const barrel = document.getElementById("gun-barrel").value;
-        details = ` (${type} - ${brand}, ${barrel} in barrel)`;
-      } else if (product === "Bow Mount") {
-        const color = document.getElementById("bow-color").value;
-        details += `, Color: ${color}`;
-        wood = document.getElementById("bow-wood").value;
-        const brand = document.getElementById("bow-brand").value;
-        details = ` (${brand})`;
-      }
-
-      price += getWoodPrice(wood);
-      const li = document.createElement("li");
-      li.textContent = `${product}${details} - ${wood} - $${price.toFixed(2)}`;
-
-      const removeBtn = document.createElement("button");
-      removeBtn.textContent = "Remove";
-    removeBtn.style.backgroundColor = "#ff0000";
-    removeBtn.style.color = "#ffffff";
-      removeBtn.onclick = function () {
-        cartItems.removeChild(li);
-        total -= price;
-        totalDisplay.textContent = total.toFixed(2);
-        showPopup("Item removed from cart!", true);
-      };
-
-      li.appendChild(removeBtn);
-      cartItems.appendChild(li);
-      total += price;
-      totalDisplay.textContent = total.toFixed(2);
-      showPopup("Item added to cart!");
-    }
-  </script>
-  <section id="custom" style="padding: 40px; background: #f4f4f4;">
-   <h2>
-    Custom Orders
-   </h2>
-   <p>
-    If you have a custom woodworking request, feel free to reach out using the form below.
-   </p>
-   <form action="mailto:voegelewoodworks@example.com" enctype="text/plain" method="POST" style="max-width: 500px;">
-    <label for="name">
-     Your Name:
-    </label>
-    <br/>
-    <input id="name" name="name" required="" type="text"/>
-    <br/>
-    <br/>
-    <label for="email">
-     Your Email:
-    </label>
-    <br/>
-    <input id="email" name="email" required="" type="email"/>
-    <br/>
-    <br/>
-    <label for="message">
-     What would you like made?
-    </label>
-    <br/>
-    <textarea id="message" name="message" required="" rows="6"></textarea>
-    <br/>
-    <br/>
-    <button type="submit">
-     Send Request
-    </button>
-   </form>
-  </section>
-  <script>
-   function updateVenmoLink() {
-    let totalElement = document.getElementById("cart-total");
-    if (totalElement) {
-        let total = totalElement.textContent.replace('$', '').trim();
-        let note = encodeURIComponent("Custom wood order from Voegele Woodworks");
-        let venmoHref = `https://venmo.com/VoegeleWoodworks?txn=pay&amount=${total}&note=${note}`;
-        document.getElementById("venmo-link").href = venmoHref;
-    }
-}
-document.addEventListener("DOMContentLoaded", updateVenmoLink);
-  </script>
-  <script>
-   function updateVenmoLink() {
-    let totalElement = document.getElementById("cart-total");
-    let total = totalElement ? totalElement.textContent.replace('$', '').trim() : "0.00";
-    let note = encodeURIComponent("Custom wood order from Voegele Woodworks");
-
-    let mobileLink = `venmo://paycharge?txn=pay&recipients=VoegeleWoodworks&amount=${total}&note=${note}`;
-    let desktopLink = `https://venmo.com/voegelewoodworks`;
-
-    let venmoBtn = document.getElementById("venmo-link");
-    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        venmoBtn.href = mobileLink;
-    } else {
-        venmoBtn.href = desktopLink;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", updateVenmoLink);
-  </script>
-  <div id="confirmation" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
-   Thank you! Your order has been submitted.
-  </div>
-  <script>
-   function showConfirmation() {
-    event.preventDefault();
-    document.querySelector("form").style.display = "none";
-    document.getElementById("confirmation").style.display = "block";
-  }
-  </script>
- 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      fetch("/", {
-        method: "POST",
-        body: formData,
-      })
-      .then(() => {
-        document.getElementById("form-container").innerHTML = "<p>Thank you! Your order has been submitted successfully.</p>";
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        alert("There was a problem submitting your order. Please try again.");
-      });
-    });
+  function updateCuttingBoardImage() {
+    const wood = document.getElementById("cutting-wood").value;
+    const img = document.getElementById("cutting-board-img");
+
+    switch(wood) {
+      case "oak": img.src = "images/oakcuttingboard.png"; break;
+      case "walnut": img.src = "images/walnutcuttingboard.png"; break;
+      case "cherry": img.src = "images/cherrycuttingboard.png"; break;
+      case "maple": img.src = "images/maplecuttingboard.png"; break;
+      case "mahogany": img.src = "images/mahoganycuttingboard.png"; break;
+      default: img.src = "images/oakcuttingboard.png";
+    }
   }
-});
 </script>
 
 
 
-  <footer id="contact" style="padding: 40px; background: #f8f8f8;">
-    <h2>
-   Contact Info
-  </h2>
-  <p>
-   Phone:  (696) 969-6969
-   <br/>
-   Email:  VoegeleCustomWoodworking@ICuck.com
-  </p>
+    <!-- Gun Mount -->
+    <div class="product">
+      <img src="gun-mount.jpg" alt="Gun Mount" style="width:100%; border-radius:8px; margin-bottom:10px;">
+      <h4>Gun Mount - $150</h4>
+      <label>Type:</label>
+      <select id="gun-type" onchange="updateGunBrands()"><option>Rifle</option><option>Shotgun</option><option>Pistol</option></select>
+      <label>Brand:</label>
+      <select id="gun-brand"></select>
+      <label>Barrel Length (in):</label>
+      <input type="number" id="gun-barrel">
+      <label>Wood Type:</label>
+      <select id="gun-wood"><option>Oak</option><option>Walnut (+$25)</option><option>Cherry (+$15)</option><option>Maple (+$10)</option><option>Mahogany (+$20)</option></select>
+      <label>Stain:</label>
+      <select id="gun-color"><option>Natural</option><option>Dark</option><option>Light</option></select>
+      <button onclick="addToCart('Gun Mount',150)">Add to Cart</button>
+    </div>
+
+    <!-- Bow Mount -->
+    <div class="product">
+      <img src="bow-mount.jpg" alt="Bow Mount" style="width:100%; border-radius:8px; margin-bottom:10px;">
+      <h4>Bow Mount - $125</h4>
+      <label>Brand:</label>
+      <input type="text" id="bow-brand" placeholder="e.g. Hoyt, Mathews">
+      <label>Wood Type:</label>
+      <select id="bow-wood"><option>Oak</option><option>Walnut (+$25)</option><option>Cherry (+$15)</option><option>Maple (+$10)</option><option>Mahogany (+$20)</option></select>
+      <label>Stain:</label>
+      <select id="bow-color"><option>Natural</option><option>Dark</option><option>Light</option></select>
+      <button onclick="addToCart('Bow Mount',125)">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Cart -->
+  <section id="cart">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="total">0.00</span></p>
+    <a href="https://cash.app/$VoegeleWoodworks" target="_blank">Pay with Cash App</a> | 
+    <a id="venmo-link" href="https://venmo.com/VoegeleWoodworks" target="_blank">Pay with Venmo</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h3>Our Services</h3>
+    <p style="text-align:center;">Custom furniture and wood repair</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h3>About Us</h3>
+    <p style="text-align:center;">...</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h3>Contact Us/Custom Orders</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Voegele Custom Woodworking</p>
+    <p>
+      <a href="https://www.facebook.com/YourPageName" target="_blank" style="color:#fff; margin:0 10px; text-decoration:none;">
+        Facebook
+      </a> | 
+      <a href="https://www.instagram.com/YourPageName" target="_blank" style="color:#fff; margin:0 10px; text-decoration:none;">
+        Instagram
+      </a>
+    </p>
   </footer>
+
+
+  <script>
+    let total=0; const cartItems=document.getElementById("cart-items"); const totalDisplay=document.getElementById("total");
+    const gunBrands={Rifle:["Ruger","Savage","Tikka","Bergara"],Shotgun:["Benelli","Mossberg","Beretta"],Pistol:["Glock","Sig Sauer","Beretta"]};
+    function updateGunBrands(){const type=document.getElementById("gun-type").value;const brandSelect=document.getElementById("gun-brand");brandSelect.innerHTML="";gunBrands[type].forEach(b=>{const opt=document.createElement("option");opt.value=b;opt.textContent=b;brandSelect.appendChild(opt);});}
+    window.onload=updateGunBrands;
+    function getWoodPrice(wood){switch(wood){case"Walnut (+$25)":return 25;case"Cherry (+$15)":return 15;case"Maple (+$10)":return 10;case"Mahogany (+$20)":return 20;default:return 0;}}
+    function addToCart(product,basePrice){
+      let wood="",price=basePrice;
+      if(product==="Cutting Board"){wood=document.getElementById("cutting-wood").value; const size=parseFloat(document.getElementById("cutting-size").value)||0; if(size>=24)price+=20; else if(size>=12)price+=10;}
+      else if(product==="Gun Mount"){wood=document.getElementById("gun-wood").value;}
+      else if(product==="Bow Mount"){wood=document.getElementById("bow-wood").value;}
+      price+=getWoodPrice(wood);
+      const li=document.createElement("li"); li.textContent=`${product} - ${wood} - $${price.toFixed(2)}`;
+      const remove=document.createElement("button"); remove.textContent="Remove"; remove.style.marginLeft="10px"; remove.onclick=()=>{cartItems.removeChild(li); total-=price; totalDisplay.textContent=total.toFixed(2);};
+      li.appendChild(remove); cartItems.appendChild(li); total+=price; totalDisplay.textContent=total.toFixed(2);
+    }
+  </script>
 </body>
 </html>
+
 
