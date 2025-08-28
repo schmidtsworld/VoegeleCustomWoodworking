@@ -28,9 +28,6 @@
       font-size: 2rem;
       color: #1c52a3;
     }
-    nav {
-      position: relative;
-    }
     nav ul {
       display: flex;
       list-style: none;
@@ -42,36 +39,6 @@
       font-weight: 600;
     }
     nav a:hover {text-decoration: underline;}
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: #1c52a3;
-      margin: 4px 0;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 200px;
-        border: 1px solid #1c52a3;
-        padding: 1rem;
-      }
-      nav ul.showing {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
     .hero {
       background: url('images/Background1.png') no-repeat center center/cover;
       height: 60vh;
@@ -81,7 +48,7 @@
       text-align: center;
     }
     .hero img {
-      max-width: 65%;   
+      max-width: 65%;   /* resized smaller */
       max-height: 65%;
       border-radius: 12px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
@@ -115,12 +82,7 @@
   <header>
     <h1>Voegele's Custom Woodworking</h1>
     <nav>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul id="menu">
+      <ul>
         <li><a href="#shop">Shop</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
@@ -136,11 +98,11 @@
   </section>
 
   <!-- Shop -->
-  <section id="shop">
-    <h3>Shop Products</h3>
-    <div class="products">
+<section id="shop">
+  <h3>Shop Products</h3>
+  <div class="products">
 
-  <!-- Cutting Board -->
+<!-- Cutting Board -->
 <div class="product">
   <img id="cutting-board-img" src="images/oakcuttingboard.png" alt="Cutting Board" 
        style="width:100%; border-radius:8px; margin-bottom:10px;">
@@ -166,55 +128,104 @@
   <button onclick="addToCart('Cutting Board',45)">Add to Cart</button>
 </div>
 
+<!-- Gun Mount -->
+<div class="product">
+  <img id="gun-mount-img" src="images/oak.png" alt="Gun Mount" 
+       style="width:100%; border-radius:8px; margin-bottom:10px;">
+  <h4>Gun Mount - $150</h4>
+
+  <label>Type:</label>
+  <select id="gun-type" onchange="updateGunBrands()"><option>Rifle</option><option>Shotgun</option><option>Pistol</option></select>
+
+  <label>Brand:</label>
+  <select id="gun-brand"></select>
+
+  <label>Barrel Length (in):</label>
+  <input type="number" id="gun-barrel">
+
+  <label>Wood Type:</label>
+  <select id="gun-wood" onchange="updateGunMountImage()">
+    <option value="oak">Oak</option>
+    <option value="walnut">Walnut (+$25)</option>
+    <option value="cherry">Cherry (+$15)</option>
+    <option value="maple">Maple (+$10)</option>
+    <option value="mahogany">Mahogany (+$20)</option>
+  </select>
+
+  <label>Stain:</label>
+  <select id="gun-color"><option>Natural</option><option>Dark</option><option>Light</option></select>
+
+  <button onclick="addToCart('Gun Mount',150)">Add to Cart</button>
+</div>
+
+<!-- Bow Mount -->
+<div class="product">
+  <img id="bow-mount-img" src="images/oak.png" alt="Bow Mount" 
+       style="width:100%; border-radius:8px; margin-bottom:10px;">
+  <h4>Bow Mount - $125</h4>
+
+  <label>Brand:</label>
+  <input type="text" id="bow-brand" placeholder="e.g. Hoyt, Mathews">
+
+  <label>Wood Type:</label>
+  <select id="bow-wood" onchange="updateBowMountImage()">
+    <option value="oak">Oak</option>
+    <option value="walnut">Walnut (+$25)</option>
+    <option value="cherry">Cherry (+$15)</option>
+    <option value="maple">Maple (+$10)</option>
+    <option value="mahogany">Mahogany (+$20)</option>
+  </select>
+
+  <label>Stain:</label>
+  <select id="bow-color"><option>Natural</option><option>Dark</option><option>Light</option></select>
+
+  <button onclick="addToCart('Bow Mount',125)">Add to Cart</button>
+</div>
+
 <script>
+  // Cutting Board Image Switch
   function updateCuttingBoardImage() {
     const wood = document.getElementById("cutting-wood").value;
     const img = document.getElementById("cutting-board-img");
 
-    // Change image depending on selected wood type
     switch(wood) {
       case "oak": img.src = "images/oakcuttingboard.png"; break;
       case "walnut": img.src = "images/walnutcuttingboard.png"; break;
       case "cherry": img.src = "images/cherrycuttingboard.png"; break;
       case "maple": img.src = "images/maplecuttingboard.png"; break;
       case "mahogany": img.src = "images/mahoganycuttingboard.png"; break;
-      default: img.src = "images/oakcuttingboard.png";
+    }
+  }
+
+  // Gun Mount Image Switch
+  function updateGunMountImage() {
+    const wood = document.getElementById("gun-wood").value;
+    const img = document.getElementById("gun-mount-img");
+
+    switch(wood) {
+      case "oak": img.src = "images/oak.png"; break;
+      case "walnut": img.src = "images/walnut.png"; break;
+      case "cherry": img.src = "images/cherry.png"; break;
+      case "maple": img.src = "images/maple.png"; break;
+      case "mahogany": img.src = "images/mahogany.png"; break;
+    }
+  }
+
+  // Bow Mount Image Switch
+  function updateBowMountImage() {
+    const wood = document.getElementById("bow-wood").value;
+    const img = document.getElementById("bow-mount-img");
+
+    switch(wood) {
+      case "oak": img.src = "images/oak.png"; break;
+      case "walnut": img.src = "images/walnut.png"; break;
+      case "cherry": img.src = "images/cherry.png"; break;
+      case "maple": img.src = "images/maple.png"; break;
+      case "mahogany": img.src = "images/mahogany.png"; break;
     }
   }
 </script>
-    
 
-      <!-- Gun Mount -->
-      <div class="product">
-        <img src="images/gun-mount.png" alt="Gun Mount" style="width:100%; border-radius:8px; margin-bottom:10px;">
-        <h4>Gun Mount - $150</h4>
-        <label>Type:</label>
-        <select id="gun-type" onchange="updateGunBrands()"><option>Rifle</option><option>Shotgun</option><option>Pistol</option></select>
-        <label>Brand:</label>
-        <select id="gun-brand"></select>
-        <label>Barrel Length (in):</label>
-        <input type="number" id="gun-barrel">
-        <label>Wood Type:</label>
-        <select id="gun-wood"><option>Oak</option><option>Walnut (+$25)</option><option>Cherry (+$15)</option><option>Maple (+$10)</option><option>Mahogany (+$20)</option></select>
-        <label>Stain:</label>
-        <select id="gun-color"><option>Natural</option><option>Dark</option><option>Light</option></select>
-        <button onclick="addToCart('Gun Mount',150)">Add to Cart</button>
-      </div>
-
-      <!-- Bow Mount -->
-      <div class="product">
-        <img src="images/bow-mount.png" alt="Bow Mount" style="width:100%; border-radius:8px; margin-bottom:10px;">
-        <h4>Bow Mount - $125</h4>
-        <label>Brand:</label>
-        <input type="text" id="bow-brand" placeholder="e.g. Hoyt, Mathews">
-        <label>Wood Type:</label>
-        <select id="bow-wood"><option>Oak</option><option>Walnut (+$25)</option><option>Cherry (+$15)</option><option>Maple (+$10)</option><option>Mahogany (+$20)</option></select>
-        <label>Stain:</label>
-        <select id="bow-color"><option>Natural</option><option>Dark</option><option>Light</option></select>
-        <button onclick="addToCart('Bow Mount',125)">Add to Cart</button>
-      </div>
-    </div>
-  </section>
 
   <!-- Cart -->
   <section id="cart">
@@ -239,7 +250,7 @@
 
   <!-- Contact -->
   <section id="contact">
-    <h3>Contact Us / Custom Orders</h3>
+    <h3>Contact Us/Custom Orders</h3>
     <form>
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
@@ -261,11 +272,8 @@
     </p>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('showing');
-    }
 
+  <script>
     let total=0; const cartItems=document.getElementById("cart-items"); const totalDisplay=document.getElementById("total");
     const gunBrands={Rifle:["Ruger","Savage","Tikka","Bergara"],Shotgun:["Benelli","Mossberg","Beretta"],Pistol:["Glock","Sig Sauer","Beretta"]};
     function updateGunBrands(){const type=document.getElementById("gun-type").value;const brandSelect=document.getElementById("gun-brand");brandSelect.innerHTML="";gunBrands[type].forEach(b=>{const opt=document.createElement("option");opt.value=b;opt.textContent=b;brandSelect.appendChild(opt);});}
@@ -284,6 +292,7 @@
   </script>
 </body>
 </html>
+
 
 
 
