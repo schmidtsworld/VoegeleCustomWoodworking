@@ -99,12 +99,59 @@
       margin-top:2rem;
     }
     footer a { color:#fff; text-decoration:none; margin:0 8px; }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      section {
+        margin: 1.5rem;
+        padding: 1.5rem;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      header h1 {
+        font-size: 1.4rem;
+      }
+      nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+      section {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      form {
+        grid-template-columns: 1fr; /* stack inputs full width */
+      }
+      form input, form select {
+        font-size: 1rem;
+      }
+      .checkout button {
+        width: 100%; /* full width on mobile */
+      }
+      .payment-link {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div style="display:flex; align-items:center; gap:15px;">
-      <img src="images/logo5.png" alt="Logo" style="height:50px; border-radius:6px;">
+      <img src="image/logo5.png" alt="Logo" style="height:50px; border-radius:6px;">
       <h1>Voegele's Custom Woodworking</h1>
     </div>
     <nav>
@@ -146,7 +193,7 @@
         <option value="venmo">Venmo</option>
       </select>
 
-      <!-- Card fields (hidden until card is selected) -->
+      <!-- Card fields -->
       <div id="card-fields" style="display:none; margin-top:1rem;">
         <input type="text" placeholder="Card Number">
         <input type="text" placeholder="Expiration Date (MM/YY)">
@@ -169,7 +216,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Voegele's Custom Woodworking</p>
+    <p>&copy; 2025 Voegele Custom Woodworking</p>
     <p>
       <a href="https://www.facebook.com/YourPageName" target="_blank">Facebook</a> | 
       <a href="https://www.instagram.com/YourPageName" target="_blank">Instagram</a>
@@ -244,3 +291,5 @@
   </script>
 </body>
 </html>
+
+
