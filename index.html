@@ -128,8 +128,8 @@
         <li><a href="#shop">Shop</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#cart">Cart</a></li>
+        <li><a href="#custom-orders">Custom Order</a></li>
+        <li><a href="cart.html">Cart</a></li>
       </ul>
     </nav>
   </header>
@@ -140,7 +140,7 @@
   </section>
 
   <!-- Shop -->
-  <section id="shop">
+  <section id="shop">...</section>
     <h3>Shop Products</h3>
     <div class="products">
 
@@ -210,40 +210,46 @@
   </section>
 
   <!-- Cart -->
-  <section id="cart">
-    <h3>Your Cart</h3>
-    <ul id="cart-items"></ul>
-    <p>Total: $<span id="total">0.00</span></p>
-    <a href="https://cash.app/$VoegeleWoodworks" target="_blank">Pay with Cash App</a> | 
-    <a id="venmo-link" href="https://venmo.com/VoegeleWoodworks" target="_blank">Pay with Venmo</a>
-  </section>
+
 
   <!-- Services -->
   <section id="services">
     <h3>Our Services</h3>
-    <p style="text-align:center;">...</p>
+    <p style="text-align:center;">Custom furniture, wood repair, and woodworking workshops tailored for you.</p>
   </section>
 
   <!-- About -->
   <section id="about">
     <h3>About Us</h3>
-    <p style="text-align:center;">...</p>
+    <p style="text-align:center;">We are passionate craftsmen creating custom woodworking pieces with timeless quality.</p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h3>Contact Us</h3>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message"></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+<!-- Custom Orders Section -->
+<section id="custom-orders" style="background:#f7f7f9; padding:3rem 2rem;">
+  <div style="display:flex; flex-wrap:wrap; align-items:center; max-width:1100px; margin:auto; gap:2rem;">
+
+    <!-- Left Side: Image -->
+    <div style="flex:1; min-width:300px;">
+      <img src="images/customorder.jpg" alt="Custom Order" style="width:100%; border-radius:10px; box-shadow:0 6px 14px rgba(0,0,0,0.15);">
+    </div>
+
+    <!-- Right Side: Text -->
+    <div style="flex:1; min-width:300px;">
+      <h2 style="color:#1c52a3; margin-bottom:1rem;">Request a Custom Order</h2>
+      <p style="margin-bottom:1.5rem;">
+        ....
+      </p>
+      <a href="#contact" style="display:inline-block; padding:0.8rem 1.5rem; background:#1c52a3; color:#fff; text-decoration:none; border-radius:6px; font-weight:600;">
+        Start Your Custom Order
+      </a>
+    </div>
+
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Voegele Custom Woodworking</p>
+    <p>&copy; 2025 Voegele's Custom Woodworking</p>
     <p>
       <a href="https://www.facebook.com/YourPageName" target="_blank">Facebook</a> | 
       <a href="https://www.instagram.com/YourPageName" target="_blank">Instagram</a>
@@ -258,17 +264,10 @@
     // Cart
     let total=0; const cartItems=document.getElementById("cart-items"); const totalDisplay=document.getElementById("total");
     function addToCart(product,basePrice){
-      let price=basePrice;
-      const li=document.createElement("li"); 
-      li.textContent=`${product} - $${price.toFixed(2)}`;
-      const remove=document.createElement("button"); 
-      remove.textContent="Remove"; 
-      remove.style.marginLeft="10px"; 
-      remove.onclick=()=>{cartItems.removeChild(li); total-=price; totalDisplay.textContent=total.toFixed(2);};
-      li.appendChild(remove); 
-      cartItems.appendChild(li); 
-      total+=price; 
-      totalDisplay.textContent=total.toFixed(2);
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name: product, price: basePrice });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(product + " added to cart!");  
     }
 
     // Product image switching
@@ -308,6 +307,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
